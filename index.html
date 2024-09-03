@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte à Rebours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+            color: #61dafb;
+            font-size: 2em;
+            text-align: center;
+        }
+        #countdown {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="countdown">Loading...</div>
+
+    <script>
+        // Date de fin du countdown
+        const countDownDate = new Date("Jan 12, 2025 00:00:00").getTime();
+
+        // Mise à jour du compte à rebours toutes les secondes
+        const x = setInterval(function() {
+
+            // Date et heure actuelle
+            const now = new Date().getTime();
+
+            // Distance entre maintenant et la date de fin
+            const distance = countDownDate - now;
+
+            // Calcul des jours, heures, minutes et secondes
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Affichage du résultat
+            document.getElementById("countdown").innerHTML = days + "j " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // Si le compte à rebours est terminé
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
