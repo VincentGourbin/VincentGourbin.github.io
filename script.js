@@ -4,7 +4,7 @@ var animationTime = 30; // Total animation time in seconds
 $(document).ready(function(){
 
     // Set the target date
-    const countDownDate = new Date("Dec 20, 2024 00:00:00").getTime();
+    const countDownDate = new Date("Dec 31, 2025 00:00:00").getTime();
 
     $('#progress-time-fill, #death-group').css({'animation-duration': animationTime+'s'});
 
